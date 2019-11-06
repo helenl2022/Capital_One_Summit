@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>   
+        <title>Welcome to Jeopardy!</title>
+
+    </head>
+
+
+    <style>
+    body{
+        background-color: #0066ff;
+        color: #ffffff
+
+    }
+    </style>
+    
+    <body>
+        <h1 style = "text-align-last:center; color: #ffcc00" >Welcome to Jeopardy!</h1>
+        <h4 style = "text-align-last:center; color: #ffcc00"> Search for Jeopardy questions or clues by filling in any of the following parameters. Enjoy!</h4>
+        <p style = "text-align-last:center; color: #ffcc00">To search for questions aired on a specific date, enter the same date for "Aired From" and "Aired To."</p>
+        <p style = "text-align-last:center; color: #ffcc00">The jService category ID must be used to filter by category. Up to 100 entries will be returned.</p>
+
+        <br></br>
+        <form method = "POST">
+        
+        <b style = "color: #ffcc00">Aired From:</b> <input type="date" style="background-color:#e4e2dc" name="start_date">
+        <b style = "color: #ffcc00">To: </b><input type="date" style="background-color:#e4e2dc" name="end_date">
+        
+        <br></br>
+        <b style = "color: #ffcc00">Category ID:</b> <input type = "number" style="background-color:#e4e2dc" name = "category_id" value = "">
+            
+        
+        <br></br>
+        <b style = "color: #ffcc00">Difficulty/Value:</b> <select name = "difficulty" style="background-color:#e4e2dc">
+            <option value = "default" SELECTED DISABLED>Select a difficulty/value:</option>
+            {% for value in values %}
+                <option value = "{{value}}">{{value}}</option>
+            {% endfor %}
+        </select>
+
+        <br></br>
+        <input type="submit" style="background-color:#e4e2dc" name = "submit" value = "Find My Questions!"/>
+        
+        </form>
+        
+        
+       {{table}}
+
+    </body>
+</html>
